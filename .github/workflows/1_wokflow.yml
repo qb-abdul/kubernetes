@@ -1,8 +1,6 @@
 name: Kubernetes
 on: 
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   install-k3s:
     runs-on: ubuntu-latest
