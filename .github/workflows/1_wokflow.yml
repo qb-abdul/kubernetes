@@ -1,0 +1,13 @@
+name: Kubernetes
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  install-k3s:
+    runs-on: self-hosted
+    steps:
+      - name: Install k3s
+        run: |
+          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy traefik" sh -s -
+          kubectl get nodes
