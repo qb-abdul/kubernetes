@@ -7,7 +7,10 @@ jobs:
   install-k3s:
     runs-on: ubuntu-latest
     steps:
-      - name: Install k3s
+      - uses: debianmaster/actions-k3s@master
+        id: k3s
+        with:
+          version: 'latest'
+      - name: Verify k3s installtion
         run: |
-          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy traefik" sh -s -
           kubectl get nodes
