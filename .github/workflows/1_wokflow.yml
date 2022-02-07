@@ -12,3 +12,7 @@ jobs:
       - name: Verify k3s installtion
         run: |
           kubectl get nodes
+      - name: Deploy the app
+        run: |
+          cd kube/
+          kubectl apply -f deploy.yml
